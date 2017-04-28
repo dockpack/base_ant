@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  author: bbaassssiiee
+  description: Ant is your friend
+  company: ---
+
+  license: MIT
+
+  min_ansible_version: 2.2.1
+
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  - name: Ubuntu
+    versions:
+    - trusty
+#  - name: Debian
+#    versions:
+#    - jessie
+  galaxy_tags:
+    - system
+    - development
+
+dependencies:
+  - { role: base_common }
+  - { role: base_java8 }
+
