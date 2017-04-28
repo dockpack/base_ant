@@ -58,34 +58,6 @@
     - ant_test
     - test
 
-- name: 'set java_top on Debian'
-  become: yes
-  set_fact:
-    java8_top: '/usr/lib/jvm/'
-  when: ansible_os_family == 'Debian'
-  tags:
-    - ant
-    - ant_test
-    - test
-
-- name: 'set java_top on RedHat'
-  become: yes
-  set_fact:
-    java8_top: '/usr/java/jvm'
-  when: ansible_os_family == 'RedHat'
-  tags:
-    - ant
-    - ant_test
-    - test
-
-- name: 'this is JAVA_HOME'
-  set_fact:
-    java8_home: "{{ java8_top }}/{{ java8_name }}"
-  tags:
-    - ant
-    - ant_test
-    - test
-
 - name: 'smoketest running Ant'
   environment:
     JAVA_HOME: "{{ java8_home }}"
