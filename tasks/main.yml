@@ -7,12 +7,18 @@
     owner: root
     group: root
     mode: 0755
+  tags:
+    - ant
 
 - name: 'verify presence of Ant'
   stat:
     path: "{{ ant_base }}/{{ ant_name }}/bin/ant"
   register: ant_installed
   when: features.ant
+  tags:
+    - ant
+    - ant_test
+    - test
 
 - name: 'untar Ant'
   unarchive:
@@ -21,6 +27,8 @@
     copy: no
   retries: 3
   when: features.ant and not ant_installed.stat.exists
+  tags:
+    - ant
 
 - name: 'install /etc/profile.d/ant.sh'
   template:
@@ -30,41 +38,61 @@
     group: root
     mode: 0644
   when: features.ant
+  tags:
+    - ant
 
 - name: 'make sure Ant directory is absent'
   file:
     dest: "{{ ant_base }}"
     state: absent
   when: not features.ant
+  tags:
+    - ant
 
 - name: 'Test for presence of Ant'
   stat:
     path: "{{ ant_base }}/{{ ant_name }}/bin/ant"
-  tags:
-    - test
   when: features.ant
+  tags:
+    - ant
+    - ant_test
+    - test
 
-- name: 'set JAVA_HOME on Debian'
+- name: 'set java_top on Debian'
   become: yes
   set_fact:
-    JAVA_HOME: '/usr/lib/jvm/jdk1.8.0_111'
+    java8_top: '/usr/lib/jvm/'
   when: ansible_os_family == 'Debian'
   tags:
-    - maven
+    - ant
+    - ant_test
+    - test
 
-- name: 'set JAVA_HOME on RedHat'
+- name: 'set java_top on RedHat'
   become: yes
   set_fact:
-    JAVA_HOME: '/usr/java/jdk1.8.0_111'
-  when: ansible_os_family == 'RedHat' and features.ant
+    java8_top: '/usr/java/jvm'
+  when: ansible_os_family == 'RedHat'
   tags:
-    - maven
+    - ant
+    - ant_test
+    - test
 
-- name: 'Test running Ant'
+- name: 'this is JAVA_HOME'
+  set_fact:
+    java8_home: "{{ java8_top }}/{{ java8_name }}"
+  tags:
+    - ant
+    - ant_test
+    - test
+
+- name: 'smoketest running Ant'
   environment:
-    JAVA_HOME: "{{ JAVA_HOME }}"
+    JAVA_HOME: "{{ java8_home }}"
   command: "{{ ant_base }}/{{ ant_name }}/bin/ant -version"
   when: features.ant
   changed_when: no
   tags:
+    - ant
+    - ant_test
     - test
