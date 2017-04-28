@@ -24,6 +24,6 @@ galaxy_info:
     - development
 
 dependencies:
-  - { role: base_common }
-  - { role: base_java8 }
+  - { src: base_common }
+  - { src: base_java8 }
 
