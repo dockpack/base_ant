@@ -43,7 +43,7 @@
 
 - name: 'remove build.xml test file'
   become: no
-  file: dest=/home/deployer/build.gradle state=absent
+  file: dest=/home/deployer/build.xml state=absent
   when: features.gradle
   tags:
     - ant
