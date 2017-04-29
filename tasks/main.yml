@@ -49,22 +49,8 @@
   tags:
     - ant
 
-- name: 'Test for presence of Ant'
-  stat:
-    path: "{{ ant_base }}/{{ ant_name }}/bin/ant"
-  when: features.ant
+- include: tests.yml
   tags:
-    - ant
-    - ant_test
-    - test
-
-- name: 'smoketest running Ant'
-  environment:
-    JAVA_HOME: "{{ java8_home }}"
-  command: "{{ ant_base }}/{{ ant_name }}/bin/ant -version"
-  when: features.ant
-  changed_when: no
-  tags:
-    - ant
-    - ant_test
+    - oracle_java8
+    - java8
     - test
