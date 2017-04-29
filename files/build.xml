@@ -1,0 +1,6 @@
+<project>
+  <target name="echotarget">
+    <property name="message" value="Ant is you friend"/>
+    <echo>${message}</echo>
+  </target>
+</project>
