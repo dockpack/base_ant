@@ -1,5 +1,6 @@
 ---
 - name: 'Test for presence of Ant'
+  become: no
   stat:
     path: "{{ ant_base }}/{{ ant_name }}/bin/ant"
   when: features.ant
@@ -9,11 +10,41 @@
     - test
 
 - name: 'smoketest running Ant'
+  become: no
   environment:
     JAVA_HOME: "{{ java8_home }}"
   command: "{{ ant_base }}/{{ ant_name }}/bin/ant -version"
   when: features.ant
   changed_when: no
+  tags:
+    - ant
+    - ant_test
+    - test
+
+- name: 'copy simple build.xml test file'
+  become: no
+  copy: src=build.xml dest=~/build.xml
+  when: features.ant
+  tags:
+    - ant
+    - ant_test
+    - test
+
+- name: 'functional test for ant'
+  become: no
+  environment:
+    JAVA_HOME: "{{ java8_home }}"
+  command: "{{ ant_base }}/{{ ant_name }}/bin/ant"
+  when: features.ant
+  tags:
+    - ant
+    - ant_test
+    - test
+
+- name: 'remove build.xml test file'
+  become: no
+  file: dest=/home/deployer/build.gradle state=absent
+  when: features.gradle
   tags:
     - ant
     - ant_test
