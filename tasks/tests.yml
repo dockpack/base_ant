@@ -1,4 +1,5 @@
 ---
+
 - name: 'Test for presence of Ant'
   become: no
   stat:
