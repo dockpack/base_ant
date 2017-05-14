@@ -3,6 +3,6 @@
 ant_version: 1.10.1
 
 ant_base: "/opt"
-ant_name: "apache-ant-{{ant_version}}"
+
 ant_tarfile: "{{ant_name}}-bin.tar.gz"
-ant_url: http://apache.cs.uu.nl//ant/binaries/{{ant_tarfile}}
+ant_url: "http://apache.cs.uu.nl//ant/binaries/{{ant_tarfile}}"

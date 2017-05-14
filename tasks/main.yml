@@ -1,6 +1,15 @@
 ---
 
 ### Ant
+
+- name: set ant_name
+  set_fact:
+    ant_name: "apache-ant-{{ant_version}}"
+
+- name: set ant_home
+  set_fact:
+    ant_home: "{{ant_base}}/{{ ant_name }}"
+
 - name: 'make sure directory for Ant exists'
   file:
     dest: "{{ ant_base }}"
