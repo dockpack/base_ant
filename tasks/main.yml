@@ -10,6 +10,16 @@
   set_fact:
     ant_home: "{{ant_base}}/{{ ant_name }}"
 
+- name: 'install ant facts'
+  template:
+    src: ant.fact
+    dest: /etc/ansible/facts.d/ant.fact
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - ant
+
 - name: 'make sure directory for Ant exists'
   file:
     dest: "{{ ant_base }}"
@@ -24,7 +34,6 @@
   stat:
     path: "{{ ant_base }}/{{ ant_name }}/bin/ant"
   register: ant_installed
-  when: features.ant
   tags:
     - ant
     - ant_test
@@ -36,7 +45,7 @@
     dest: "{{ ant_base }}"
     copy: no
   retries: 3
-  when: features.ant and not ant_installed.stat.exists
+  when: not ant_installed.stat.exists
   tags:
     - ant
 
@@ -47,20 +56,10 @@
     owner: root
     group: root
     mode: 0644
-  when: features.ant
-  tags:
-    - ant
-
-- name: 'make sure Ant directory is absent'
-  file:
-    dest: "{{ ant_base }}"
-    state: absent
-  when: not features.ant
   tags:
     - ant
 
 - include: tests.yml
   tags:
-    - oracle_java8
     - java8
     - test

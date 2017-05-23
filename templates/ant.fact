@@ -1,0 +1,4 @@
+[ant]
+ant_base={{ ant_base }}
+ant_name={{ ant_name }}
+ant_home={{ ant_home }}
