@@ -14,7 +14,7 @@
   become: no
   environment:
     JAVA_HOME: "{{ java8_home }}"
-  command: "{{ ant_base }}/{{ ant_name }}/bin/ant -version"
+  command: "{{ ansible_local.ant.ant.ant_home }}/bin/ant -version"
   when: features.ant
   changed_when: no
   tags:
@@ -36,7 +36,7 @@
   environment:
     JAVA_HOME: "{{ java8_home }}"
     PATH: "{{ java8_home }}/bin/java:{{ ansible_env.PATH }}"
-  command: "{{ ant_base }}/{{ ant_name }}/bin/ant -buildfile ~/build.xml"
+  command: "{{ ansible_local.ant.ant.ant_home }}/bin/ant -buildfile ~/build.xml"
   when: features.ant
   tags:
     - ant

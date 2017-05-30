@@ -51,7 +51,7 @@
 
 - name: 'install /etc/profile.d/ant.sh'
   template:
-    src: etc-profile-d-ant-sh.j2
+    src: etc-profile-d-ant-sh
     dest: /etc/profile.d/ant.sh
     owner: root
     group: root
