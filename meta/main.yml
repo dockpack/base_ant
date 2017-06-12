@@ -25,6 +25,6 @@ galaxy_info:
     - development
 
 dependencies:
-  - { role: bbaassssiiee.base_common }
-  - { role: bbaassssiiee.base_java8 }
+  - bbaassssiiee.base_common
+  - bbaassssiiee.base_java8
 
