@@ -1,6 +1,7 @@
 ---
 
-- setup:
+- name: 'Load local facts'
+  setup:
   tags:
     - test
 
