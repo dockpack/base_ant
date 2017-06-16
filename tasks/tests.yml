@@ -29,7 +29,9 @@
 
 - name: 'copy simple build.xml test file'
   become: no
-  copy: src=build.xml dest=~/build.xml
+  copy:
+    src: build.xml
+    dest: ~/build.xml
   changed_when: no  # test only
   when: features.ant
   tags:
@@ -52,7 +54,9 @@
 
 - name: 'remove build.xml test file'
   become: no
-  file: dest=~/build.xml state=absent
+  file:
+    dest: ~/build.xml
+    state: absent
   changed_when: no  # test only
   when: features.ant
   tags:
