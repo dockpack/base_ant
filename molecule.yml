@@ -1,0 +1,20 @@
+---
+dependency:
+  name: galaxy
+  requirements_file: requirements.yml
+driver:
+  name: docker
+docker:
+  containers:
+    - name: base-ant-centos
+      image: milcom/centos7-systemd
+      image_version: latest
+      ansible_groups:
+        - group1
+    - name: base-ant-ubuntu
+      image: ubuntu
+      image_version: latest
+      ansible_groups:
+        - group2
+verifier:
+  name: testinfra
