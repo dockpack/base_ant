@@ -30,6 +30,7 @@
 - name: 'copy simple build.xml test file'
   become: no
   copy: src=build.xml dest=~/build.xml
+  changed_when: no  # test only
   when: features.ant
   tags:
     - ant
@@ -42,6 +43,7 @@
     JAVA_HOME: "{{ java8_home }}"
     PATH: "{{ java8_home }}/bin/java:{{ ansible_env.PATH }}"
   command: "{{ ansible_local.ant.ant.ant_home }}/bin/ant -buildfile ~/build.xml"
+  changed_when: no  # test only
   when: features.ant
   tags:
     - ant
@@ -51,6 +53,7 @@
 - name: 'remove build.xml test file'
   become: no
   file: dest=~/build.xml state=absent
+  changed_when: no  # test only
   when: features.ant
   tags:
     - ant
