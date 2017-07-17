@@ -7,12 +7,14 @@
     ant_name: "apache-ant-{{ ant_version }}"
   tags:
     - ant
+    - test
 
 - name: set ant_home
   set_fact:
     ant_home: "{{ ant_base }}/{{ ant_name }}"
   tags:
     - ant
+    - test
 
 - name: 'install ant facts'
   template:
