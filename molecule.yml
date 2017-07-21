@@ -12,10 +12,5 @@ docker:
       image_version: latest
       ansible_groups:
         - group1
-    - name: base-ant-ubuntu
-      image: ubuntu
-      image_version: latest
-      ansible_groups:
-        - group2
 verifier:
   name: testinfra
