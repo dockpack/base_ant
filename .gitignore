@@ -1,5 +1,6 @@
 # Config file for instance
 ansible.cfg
+.molecule/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

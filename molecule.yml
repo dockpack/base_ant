@@ -13,4 +13,4 @@ docker:
       ansible_groups:
         - group1
 verifier:
-  name: testinfra
+  name: goss
