@@ -1,3 +1,5 @@
+![Build Status](https://api.travis-ci.org/dockpack/base_ant.svg)
+
 dockpack.ant
 =========
 
