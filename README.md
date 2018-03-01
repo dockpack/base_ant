@@ -1,4 +1,4 @@
-dockepack.ant
+dockpack.ant
 =========
 
 Ant - Another new tool. To build Java projects.
