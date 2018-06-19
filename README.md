@@ -1,4 +1,6 @@
-bbaassssiiee.artifactory
+![Build Status](https://api.travis-ci.org/dockpack/base_ant.svg)
+
+dockpack.ant
 =========
 
 Ant - Another new tool. To build Java projects.
@@ -6,7 +8,7 @@ Ant - Another new tool. To build Java projects.
 Requirements
 ------------
 
-This role was built for Ubuntu Trusty or RedHat systems like RHEL 6, Centos 7. It needs bbaassssiiee.base_java8.
+This role was built for Ubuntu Trusty or RedHat systems like RHEL 6, Centos 7. It needs dockpack.base_java8.
 
 Role Variables
 --------------
@@ -18,7 +20,7 @@ ant\_base: "/opt"
 Dependencies
 ------------
 
-Ant needs Java8. This role depends on bbaassssiiee.base_java8, which will be installed automatically if you use this one.
+Ant needs Java8. This role depends on dockpack.base_java8, which will be installed automatically if you use this one.
 
 
 
@@ -31,7 +33,7 @@ Example of how to use this role:
 
     - hosts: servers
       roles:
-         - { role: bbaassssiiee.base_ant }
+         - { role: dockpack.base_ant }
 
 License
 -------

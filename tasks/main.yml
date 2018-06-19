@@ -67,5 +67,4 @@
 
 - include: tests.yml
   tags:
-    - java8
     - test
