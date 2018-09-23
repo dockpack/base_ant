@@ -1,4 +1,4 @@
-![Build Status](https://api.travis-ci.org/dockpack/base_ant.svg)
+[![Galaxy](https://img.shields.io/badge/galaxy-dockpack.base__ant-blue.svg?style=flat)](https://galaxy.ansible.com/dockpack/base_ant)[![Build Status](https://api.travis-ci.org/dockpack/base_ant.svg)](https://travis-ci.org/dockpack/base_ant)
 
 dockpack.ant
 =========
