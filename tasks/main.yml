@@ -9,6 +9,14 @@
     - ant
     - test
 
+- name: Ensure facts can be stored locally
+  file:
+    path: /etc/ansible/facts.d
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
 - name: set ant_home
   set_fact:
     ant_home: "{{ ant_base }}/{{ ant_name }}"
@@ -64,7 +72,3 @@
     mode: 0644
   tags:
     - ant
-
-- include: tests.yml
-  tags:
-    - test
