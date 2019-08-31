@@ -2,5 +2,4 @@
 # Standards: 0.2
 - hosts: all
   roles:
-    - role: dockpack.base_common
     - role: dockpack.base_java8
