@@ -11,12 +11,13 @@ platforms:
     image: centos:7
     privileged: True
   - name: base-ant-ubuntu
-    image: ubuntu
+    image: ubuntu:xenial
     privileged: True
 provisioner:
   name: ansible
   config_options:
     defaults:
+      stdout_callback: yaml
       remote_tmp: /tmp
   playbooks:
     converge: playbook.yml
