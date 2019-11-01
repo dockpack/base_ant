@@ -1,7 +1,7 @@
 ---
 ant_base: "/opt"
 
-ant_version: 1.10.6
+ant_version: 1.10.7
 
 ant_name: "apache-ant-{{ ant_version }}"
 ant_tarfile: "{{ ant_name }}-bin.tar.gz"
