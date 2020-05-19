@@ -1,3 +1,5 @@
 tox
 molecule
 docker
+
+ansible>=2.9.10 # not directly required, pinned by Snyk to avoid a vulnerability
