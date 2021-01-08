@@ -1,6 +1,6 @@
 {
     "name": "dockpack.base_ant",
-    "version": "v1.10.7",
+    "version": "1.10.8",
     "scripts": {
         "release": "release-it"
     },
