@@ -57,7 +57,7 @@
   unarchive:
     src: "{{ ant_url }}"
     dest: "{{ ant_base }}"
-    copy: no
+    copy: false
   retries: 3
   when: not ant_installed.stat.exists
   tags:

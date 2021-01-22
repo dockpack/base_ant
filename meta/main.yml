@@ -23,5 +23,5 @@ galaxy_info:
     - centos
     - ubuntu
 
-dependencies:
-  - dockpack.base_java8
+dependencies: []
+#  - dockpack.base_java8
