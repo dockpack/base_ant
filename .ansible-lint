@@ -1,3 +1,4 @@
-# .ansible-lint
+---
 skip_list:
-  - '208'  # File permissions not mentioned'
+  - experimental  # all rules tagged as experimental
+  - fqcn-builtins
