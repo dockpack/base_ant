@@ -9,8 +9,14 @@ lint: |
 driver:
   name: docker
 platforms:
-  - name: base-ant-centos
+  - name: base-ant-centos8
+    image: quay.io/centos/centos:stream8
+    privileged: true
+  - name: base-ant-centos7
     image: centos:7
+    privileged: true
+  - name: base-maven-focal
+    image: ubuntu:focal
     privileged: true
   - name: base-ant-ubuntu
     image: ubuntu:bionic
